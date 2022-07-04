@@ -18,19 +18,17 @@ class LoginController extends Controller
     {
         $this->token = $token;
     }
+
     public function login(UserLoginValidator $request)
     {
 
         $credentials = $request->only('email', 'password');
 
         if (false === Auth::attempt($credentials)) {
-            return response()->json([
-                'metadata' => [
-                    'code' => 401,
-                    'message' => 'These credentials do not match our records.'
-                ],
-                'data' => [],
-            ]);
+
+            return response([
+                'message' => 'These credentials do not match our records.'
+            ], 401);
 
         }
 

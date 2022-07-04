@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApiController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ServiceController;
@@ -25,4 +26,6 @@ Route::group([
 Route::get('/service/alive', [ServiceController::class, 'alive']);
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/register', [RegisterController::class, 'register']);
-
+//Route::post('/getToken', [ApiController::class, 'getToken']);
+Route::get('/getSymptoms', [ApiController::class, 'getSymptoms']);
+Route::get('/getDiagnosis', [ApiController::class, 'getDiagnosis']);
