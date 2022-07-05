@@ -20,4 +20,12 @@ class HistoricDiagnosis extends Model
     protected $guarded = [
         'id',
     ];
+
+    /**
+     * The owner for the diagnosis
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

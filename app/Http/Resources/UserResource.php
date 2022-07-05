@@ -18,7 +18,7 @@ class UserResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'gender' => GenderType::from($this->gender)->name,
+            'gender' => GenderType::from($this->gender)->value,
             'birthday' => $this->birthday,
             'email' => $this->email,
             'token' => $this->when($this->relationLoaded('token'), function () {

@@ -33,9 +33,11 @@ class LoginController extends Controller
         }
 
         $user = Auth::user();
+        $token = $user->createToken($user->email)->plainTextToken;
+
         $user->setRelation(
             'token',
-            $this->token->createFromUser($user)
+            $this->token->createFromUserToken($user, $token)
         );
 
         return $this->response(new UserResource($user));

@@ -44,4 +44,12 @@ class User extends Authenticatable
     {
         return $this->hasOne(Token::class);
     }
+
+    /**
+     * Get the historic diagnostics for the user
+     */
+    public function historic_diagnostics()
+    {
+        return $this->hasMany(HistoricDiagnosis::class);
+    }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ApiController;
+use App\Http\Controllers\HistoricDiagnosisController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ServiceController;
@@ -21,11 +22,12 @@ use Illuminate\Support\Facades\Route;
 Route::group([
     'middleware' => ['auth:sanctum'],
 ], function(){
-    //Route::apiResource('usuarios', UserController::class);
-});
-Route::get('/service/alive', [ServiceController::class, 'alive']);
-Route::post('/login', [LoginController::class, 'login']);
-Route::post('/register', [RegisterController::class, 'register']);
 //Route::post('/getToken', [ApiController::class, 'getToken']);
-Route::get('/getSymptoms', [ApiController::class, 'getSymptoms']);
-Route::get('/getDiagnosis', [ApiController::class, 'getDiagnosis']);
+    Route::get('/getSymptoms', [ApiController::class, 'getSymptoms']);
+    Route::get('/getDiagnostics', [ApiController::class, 'getDiagnostics']);
+    Route::get('/getHistoricDiagnostics', [HistoricDiagnosisController::class, 'index']);
+});
+
+Route::get('/service/alive', [ServiceController::class, 'alive']);
+Route::post('/register', [RegisterController::class, 'register']);
+Route::post('/login', [LoginController::class, 'login']);

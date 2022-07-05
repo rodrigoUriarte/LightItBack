@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -10,6 +11,7 @@ class CreateHistoricDiagnostics extends Migration
     {
         Schema::create('historic_diagnostics', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor(User::class);
             $table->integer('historic_diagnosis_id');
             $table->string('name');
             $table->integer('accuracy');

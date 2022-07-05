@@ -15,7 +15,7 @@ class HistoricDiagnosisResource extends JsonResource
     {
         //dd($this);
         return [
-            //'id' => $this->id,
+            'id' => $this->id,
             'historic_diagnosis_id' => $this->historic_diagnosis_id,
             'name' => $this->name,
             'accuracy' => $this->accuracy,

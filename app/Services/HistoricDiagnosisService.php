@@ -6,6 +6,7 @@ use App\DataTransferObjects\HistoricDiagnosisData;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\HistoricDiagnosisResource;
 use App\Models\HistoricDiagnosis;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class HistoricDiagnosisService extends Controller
@@ -15,6 +16,7 @@ class HistoricDiagnosisService extends Controller
 
         $historic_diagnosis = new HistoricDiagnosis;
 
+        $historic_diagnosis->user_id = Auth::user()->id;
         $historic_diagnosis->historic_diagnosis_id = $data->historic_diagnosis_id;
         $historic_diagnosis->name = $data->name;
         $historic_diagnosis->accuracy = $data->accuracy;

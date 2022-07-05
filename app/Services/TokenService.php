@@ -8,12 +8,12 @@ use Illuminate\Support\Str;
 
 class TokenService
 {
-    public function createFromUser(User $user): Token
+    public function createFromUserToken(User $user,string $token): Token
     {
         return Token::updateOrCreate(
             ['user_id' => $user->id],
             [
-                'token' => uniqid(base64_encode(Str::random(60))),
+                'token' => $token,
                 'expires_at' => Carbon::now('utc')->addDay(),
             ]
         );

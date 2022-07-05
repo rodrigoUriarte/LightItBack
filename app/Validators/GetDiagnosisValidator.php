@@ -43,7 +43,6 @@ class GetDiagnosisValidator extends FormRequest
             'gender' => ['required', 'string', new Enum(GenderType::class)],
             'birthday' => ['required', 'string', 'date_format:Y-m-d'],
             'year_of_birth' => ['required', 'integer'],
-            'language' => ['required', 'string'],
         ];
     }
 }

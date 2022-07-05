@@ -54,7 +54,7 @@ class ApiController extends Controller
     }
 
     //This function get the diagnosis from the API, given an array of symptoms.
-    public function getDiagnosis(GetDiagnosisValidator $request)
+    public function getDiagnostics(GetDiagnosisValidator $request)
     {
         $response = Http::get('https://sandbox-healthservice.priaid.ch/diagnosis', [
             'token' => Cache::get('token', function () {
