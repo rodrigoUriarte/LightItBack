@@ -25,6 +25,8 @@ class HistoricDiagnosisController extends Controller
     {
         $historic_diagnosis->confirmed = true;
 
+        $historic_diagnosis->save();
+
         return $this->response(new HistoricDiagnosisResource($historic_diagnosis));
     }
 }
