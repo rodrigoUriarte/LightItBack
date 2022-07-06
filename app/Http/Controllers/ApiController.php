@@ -9,6 +9,7 @@ use App\Services\HistoricDiagnosisService;
 use App\Validators\GetDiagnosisValidator;
 use App\Validators\GetSymptomsValidator;
 use Carbon\Carbon;
+use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
@@ -51,6 +52,17 @@ class ApiController extends Controller
         });
 
         return $this->response(SymptomsResource::collection($response));
+
+    }
+
+    //This function clears the symptoms cache
+    public function clearSymptoms()
+    {
+        $cleared = Cache::forget('symptoms');
+
+        return $this->response(JsonResource::make([
+            'cleared' => $cleared
+        ]));
 
     }
 
