@@ -2,9 +2,7 @@
 
 namespace App\Validators;
 
-use App\Enums\GenderType;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rules\Enum;
 
 class GetDiagnosisValidator extends FormRequest
 {

@@ -4,12 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\HistoricDiagnosisResource;
 use App\Models\HistoricDiagnosis;
-use App\Validators\GetHistoricDiagnosticsValidator;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class HistoricDiagnosisController extends Controller
 {
-    public function index(GetHistoricDiagnosticsValidator $request)
+    public function index(Request $request)
     {
         $limit = $this->getPaginationLimit($request);
         $user_id = Auth::user()->id;
