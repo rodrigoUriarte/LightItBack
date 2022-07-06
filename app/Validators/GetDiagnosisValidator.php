@@ -28,8 +28,6 @@ class GetDiagnosisValidator extends FormRequest
     {
         return [
             'symptoms' => ['required', 'array'],
-            'gender' => ['required', 'string', new Enum(GenderType::class)],
-            'birthday' => ['required', 'string', 'date_format:Y-m-d'],
         ];
     }
 }
