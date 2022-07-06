@@ -20,4 +20,11 @@ class HistoricDiagnosisController extends Controller
 
         return $this->response(HistoricDiagnosisResource::collection($historic_diagnostics));
     }
+
+    public function update (HistoricDiagnosis $historic_diagnosis)
+    {
+        $historic_diagnosis->confirmed = true;
+
+        return $this->response(new HistoricDiagnosisResource($historic_diagnosis));
+    }
 }

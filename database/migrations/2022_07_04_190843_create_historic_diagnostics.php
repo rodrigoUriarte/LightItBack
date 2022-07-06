@@ -13,11 +13,11 @@ class CreateHistoricDiagnostics extends Migration
             $table->id();
             $table->foreignIdFor(User::class);
             $table->integer('historic_diagnosis_id');
-            $table->string('name');
+            $table->string('name',300);
             $table->integer('accuracy');
-            $table->string('icd');
-            $table->string('icd_name');
-            $table->string('prof_name');
+            $table->string('icd',200);
+            $table->string('icd_name', 500);
+            $table->string('prof_name',500);
             $table->integer('ranking');
             $table->boolean('confirmed')->nullable();
             //

@@ -22,7 +22,11 @@ class HistoricDiagnosisResource extends JsonResource
             'icd' => $this->icd,
             'icd_name' => $this->icd_name,
             'prof_name' => $this->prof_name,
-            'ranking' => $this->ranking
+            'ranking' => $this->ranking,
+            'confirmed' => $this->when(
+                $this->confirmed,
+                $this->confirmed
+            )
         ];
     }
 }

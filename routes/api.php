@@ -26,6 +26,7 @@ Route::group([
     Route::get('/getSymptoms', [ApiController::class, 'getSymptoms']);
     Route::get('/getDiagnostics', [ApiController::class, 'getDiagnostics']);
     Route::get('/getHistoricDiagnostics', [HistoricDiagnosisController::class, 'index']);
+    Route::patch('/confirm_diagnosis/{historic_diagnosis}', [HistoricDiagnosisController::class, 'update']);
 });
 
 Route::get('/service/alive', [ServiceController::class, 'alive']);
