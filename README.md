@@ -35,5 +35,5 @@ docker run --rm \
 ```
 
 ```sh
-./vendor/bin/sail up
+./vendor/bin/sail up -d
 ```
