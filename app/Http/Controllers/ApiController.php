@@ -19,7 +19,6 @@ class ApiController extends Controller
 
     public function __construct(HistoricDiagnosisService $service)
     {
-        //parent::__construct();
         $this->service = $service;
     }
 

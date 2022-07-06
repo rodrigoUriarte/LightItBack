@@ -32,16 +32,15 @@ class HistoricDiagnosisService extends Controller
     public function store($historicDiagnosis)
     {
 
-        $data = [];
         $resource_data = collect();
         foreach ($historicDiagnosis as $diagnosis) {
             $dto = HistoricDiagnosisData::fromDiagnosis($diagnosis);
             $historic_diagnosis = $this->create($dto);
             $resource_data->push($historic_diagnosis);
-            $data[] = $historic_diagnosis->toArray();
         }
+        $insert_data = $resource_data->toArray();
 
-        DB::table('historic_diagnostics')->insert($data);
+        DB::table('historic_diagnostics')->insert($insert_data);
 
         return $this->response(HistoricDiagnosisResource::collection($resource_data));
 
