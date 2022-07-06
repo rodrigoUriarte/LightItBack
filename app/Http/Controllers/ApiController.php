@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Enums\GenderType;
+use App\Http\Resources\HistoricDiagnosisResource;
 use App\Http\Resources\SymptomsResource;
 use App\Services\HistoricDiagnosisService;
 use App\Validators\GetDiagnosisValidator;
 use App\Validators\GetSymptomsValidator;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 
@@ -61,12 +63,13 @@ class ApiController extends Controller
             }),
             'symptoms' => json_encode($request->get('symptoms')),
             'gender' => GenderType::from($request->get('gender'))->value,
-            'year_of_birth' => $request->get('year_of_birth'),
+            'year_of_birth' => Carbon::createFromFormat('Y-m-d', $request->get('birthday'))->year,
             'language' => 'es-es',
         ])->object();
 
-        $diagnosis = $this->service->store($response);
+        $resource_data = $this->service->store($response);
 
-        return $diagnosis;
+        return $this->response(HistoricDiagnosisResource::collection($resource_data));
+
     }
 }

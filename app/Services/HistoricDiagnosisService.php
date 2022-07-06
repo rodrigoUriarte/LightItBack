@@ -4,7 +4,6 @@ namespace App\Services;
 
 use App\DataTransferObjects\HistoricDiagnosisData;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\HistoricDiagnosisResource;
 use App\Models\HistoricDiagnosis;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -42,7 +41,7 @@ class HistoricDiagnosisService extends Controller
 
         DB::table('historic_diagnostics')->insert($insert_data);
 
-        return $this->response(HistoricDiagnosisResource::collection($resource_data));
+        return $resource_data;
 
     }
 
