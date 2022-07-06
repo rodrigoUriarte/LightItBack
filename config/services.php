@@ -31,8 +31,12 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
     'apimedic' => [
-        'user' => env('APIMEDIC_ACCESS_KEY_ID'),
-        'hashed_key' => env('APIMEDIC_SECRET_ACCESS_KEY'),
+        'user' => env('APIMEDIC_USERNAME'),
+        'hashed_key' => base64_encode(hash_hmac(
+            'md5',
+            env('APIMEDIC_AUTH_URL'),
+            env('APIMEDIC_PASSWORD'),
+            true)),
     ],
 
 ];
