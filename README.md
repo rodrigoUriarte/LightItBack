@@ -15,7 +15,7 @@ Copy the .env.example file.
 cp .env.example .env
 ```
 
-Add your credentials for connection to [ApiMedic] in the .env file(https://apimedic.com/).
+Add your credentials for connection to [ApiMedic](https://apimedic.com/) in the .env file.
 
 ```sh
 APIMEDIC_USERNAME= "your_mail"
