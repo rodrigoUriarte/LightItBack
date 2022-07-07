@@ -15,7 +15,7 @@ Copy the .env.example file.
 cp .env.example .env
 ```
 
-Add your credentials for connection to [ApiMedic](https://apimedic.com/).
+Add your credentials for connection to [ApiMedic] in the .env file(https://apimedic.com/).
 
 ```sh
 APIMEDIC_USERNAME= "your_mail"
@@ -23,7 +23,7 @@ APIMEDIC_PASSWORD= "your_password"
 ```
 
 ## Project Setup
-Inside the project folder run the following commands:
+In the project folder level run the following commands:
 
 ```sh
 docker run --rm \
