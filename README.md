@@ -37,3 +37,7 @@ docker run --rm \
 ```sh
 ./vendor/bin/sail up -d
 ```
+
+```sh
+./vendor/bin/sail artisan migrate:fresh
+```
