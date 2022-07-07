@@ -21,6 +21,7 @@ class UserCreationValidator extends FormRequest
                 'max:150',
             ],
             'password' => ['required', 'string', 'max:50'],
+            'password_confirmation' => ['required', 'string', 'max:50', 'same:password'],
         ];
     }
 }
